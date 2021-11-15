@@ -84,8 +84,9 @@ include("keys.php");
     grecaptcha.ready(function() {
     grecaptcha.execute('<?php echo SITE_KEY; ?>', {action: 'homepage'})
     .then(function(token) {
-        
+      
         $('#google-response-token').val(token);
+        alert(token);
     });
     });
 

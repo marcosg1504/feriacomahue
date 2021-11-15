@@ -46,6 +46,8 @@
               <br />
               <!--<input type="submit" value="Login" class="btn btn-success" />-->
               <!--<input type="hidden" name="google-response-token" id="google-response-token">-->
+              <a href="<?= base_url("login/reestablecer"); ?>">recuperar clave</a> 
+
               <button  class="btn btn-primary form-control" onclick="login()" 
                 data-sitekey=<?php echo SITE_KEY; ?> 
                 data-callback='onSubmit' 
@@ -68,7 +70,6 @@
               <input type="email" name="correo" class="form-control" required />
               Contraseña
               <input type="password" name="contrasena" class="form-control" required />
-              <a href="<?= base_url("login/reestablecer"); ?>">recuperar clave</a>
 
               <br />
               <input type="submit" value="Registro" class="btn btn-primary form-control" />
