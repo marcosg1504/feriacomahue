@@ -3,15 +3,15 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__text">
-                    <h2>Producto - <?= $producto->nombre; ?></h2>
+                    <h3>Nombre de producto: <?= $producto->nombre; ?></h3>
                     <input type="hidden" id="productid" value="<?= $producto->id; ?>" />
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="breadcrumb__links">
+                <!--<div class="breadcrumb__links">
                     <a href="<?= base_url("products"); ?>">Productos</a>
                     <span><?= $producto->nombre; ?></span>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -35,13 +35,18 @@
           <p><?= $producto->descripcion; ?></p>
           <b>Categoria:</b>
           <p><?= $producto->categoria; ?></p>
+          <b>Stock disponible:</b>
+          
+         
+          <input type="text" id="stock" name="stock" value="<?= $producto->stock; ?>" style="border:none"  readonly>
+ 
           <div class="product__details__option">
             <div class="quantity">
-              <div class="pro-qty">
-                <input type="text" id="quantity" value="1" />
-              </div>
+              
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $producto->stock; ?>">
+              
             </div>
-          <button class="primary-btn" onclick="addproducttocart()">Añadir al carrito/button>
+          <button class="primary-btn" onclick="addproducttocart()">Añadir al carrito
         </div>
       </div>
     </div>
@@ -52,13 +57,23 @@
   {
     var productid = document.getElementById("productid").value;
     var quantity = document.getElementById("quantity").value;
+   var stock = document.getElementById("stock").value;
+    alert(quantity);
+    alert(stock);
+    var stock = stock-quantity;
+    alert(stock);
+    document.getElementById("stock").value=stock; 
+
     
     var productids = "";
     var quantities = "";
+    
+
 
     var product = {
       "productid" : productid,
       "quantity" : quantity,
+      //"stock": stock,
     };
     var products = JSON.parse(localStorage.getItem("products"));
     if(products == null)
@@ -88,10 +103,13 @@
     }
     setCookie("productids", productids);
     setCookie("quantities", quantities);
+   // setCookie("stock", stock);
     localStorage.setItem("products", JSON.stringify(products));
     console.log(products);    
     showSnackbar("Producto agregado al carrito");
+   
     refreshCart();
+    //location.reload();
   }
 
   var productid = document.getElementById("productoid").value;

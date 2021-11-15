@@ -17,6 +17,19 @@ class Login extends CI_Controller {
         $this->load->view("login");
 		$this->load->view("layout/footer");
     }
+    public function reestablecer()
+	{
+        $this->load->view("layout/header");
+        $this->load->view("reestablecer");
+		$this->load->view("layout/footer");
+    }
+    public function mailreset()
+	{
+        //$this->load->view("layout/header");
+        $this->load->view("mailreset");
+		//$this->load->view("layout/footer");
+    }
+
     
     public function checklogin()
     {

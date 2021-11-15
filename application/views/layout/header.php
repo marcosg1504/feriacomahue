@@ -65,7 +65,17 @@
   to {bottom: 0; opacity: 0;}
 }
 </style>
+<?php
 
+$this->load->view('keys');
+
+?>
+<script src='https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>'></script>
+<script>
+   function onSubmit(token) {
+     document.getElementById("formLogin").submit();
+   }
+ </script>
 </head>
 <body>
     <div id="snackbar">....</div>

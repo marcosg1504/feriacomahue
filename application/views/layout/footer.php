@@ -1,64 +1,22 @@
-<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__widget">
-                    <!--h6>WORKING HOURS</h6>
-                    <ul>
-                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-                        <li>Saturday: 10:00 am – 16:30 pm</li>
-                        <li>Sunday: 10:00 am – 16:30 pm</li>
-                    </ul>-->
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__about">
-                    <div class="footer__logo">
-                        <a href="#"><img src="<?= base_url("assets/"); ?>img/footer-logo.png" alt=""></a>
-                    </div>
-                    <p>     </p>
-                    <div class="footer__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__about">
-                    <h5>Subscribe</h5>
-                    <p> </p>
-                    <form action="#">
-                        <input type="text" placeholder="Correo">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="copyright__text text-white">
-                          
-                           <a href="#" target="_blank"> </a>
 
-</p>
-</div>
-<div class="col-lg-5">
-<div class="copyright__widget">
-<ul>
-<li><a href="#"> </a></li>
-<li><a href="#"></a></li>
-<li><a href="#"> </a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
+<style>
+    .panel-footer{
+  background-color:#337ab7;
+  border-color: #337ab7;
+  color: #FFFFFF;
+ }
+ </style>
+<footer >
+    <div class="panel-footer">
+
+ <!-- Copyright -->
+ <div class="footer-copyright text-center py-3 "> © 2021 Copyright Feria Comahue
+    <a style="color:#FFFFFF;" href="https://feriacomahue.com/" > Erick Calderon - Marcos Gutierrez</a>
+  </div>
+  <!-- Copyright -->
+
+    </div>
+ 
 </footer>
 
 
@@ -114,5 +72,43 @@ function setCookie(cname, cvalue)
 
   refreshCart();
 </script>
+
+<script type="text/javascript">
+
+    function login()
+    {
+
+        var form = $('#loginForm');
+        var url = form.attr('action');
+
+        $.ajax(
+        {
+            type: "POST",
+            url: 'recaptcha.php',
+            data: form.serialize(),
+            success: function(data)
+            {
+                 $('#message').empty();
+                $('#message').append(data);
+            }
+        });
+
+    }
+
+
+    grecaptcha.ready(function() {
+    grecaptcha.execute('<?php echo SITE_KEY; ?>', {action: 'homepage'})
+    .then(function(token) {
+        
+        $('#google-response-token').val(token);
+        //alert(token);
+    });
+    });
+
+
+</script>
+
+
+
 </body>
 </html>

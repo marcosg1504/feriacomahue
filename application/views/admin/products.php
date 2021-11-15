@@ -22,14 +22,16 @@
           <div class="col-lg-12">
             <table class="table table-bordered">
               <tr>
-                <th></th>
-                <th>Numero</th>
+                <th>opciones</th>
+                
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Mayor Precio</th>
                 <th>Precio</th>
+                <th>Stock</th>
               </tr>
               <?php
+            
                 $count = 1;
                 foreach($result as $row)
                 {
@@ -39,11 +41,12 @@
                     <a href="<?= base_url("admin/product/" . $row->id); ?>">Editar</a>
                     <a href="<?= base_url("admin/borrar_producto/" . $row->id); ?>" onclick="return confirm('Seguro que quiere borrar?')">Eliminar</a>
                   </td>
-                  <td><?= $count; ?></td>
-                  <td><img src="<?= base_url("productpics/" . $row->nombre_imagen); ?>" style="height:100px;" /></td>
+                  
+                  <td><img src="<?= base_url("productpics/" . $row->nombre_imagen); ?>" style="height:100px" /></td>
                   <td><?= $row->nombre; ?></td>
                   <td><?= number_format($row->mayor_precio, 2); ?></td>
                   <td><?= number_format($row->precio, 2); ?></td>
+                  <td><?= number_format($row->stock, 2); ?></td>
                   </tr>
                   <?php
                 }

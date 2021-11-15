@@ -31,9 +31,11 @@ class ProductModel extends CI_Model{
 			"usuarioid"=>$this->input->post("usuarioid"),
             "mayor_precio"=>$this->input->post("mayor_precio"),
             "precio"=>$this->input->post("precio"),
+            "stock"=>$this->input->post("stock"),
             "descripcion"=>$this->input->post("descripcion"),
             "categoria"=>$this->input->post("categoria"),
-            "estado"=>"activo",
+            "estado"=>$this->input->post("estado"),
+           
         );
         if($id == 0){
             $this->db->insert("t_productos", $field);

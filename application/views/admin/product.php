@@ -31,24 +31,44 @@
               <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-6">
-                    Producto Mayor Precio
+                    Precio Anterior
                     <input type="number" id="mayor_precio" name="mayor_precio" class="form-control" value="<?= $id == 0 ? "" : $producto->mayor_precio; ?>" min=0 required/>
                   </div>
                   <div class="col-lg-6">
-                    Precio Producto
+                    Precio Actual
                     <input type="number" id="precio" name="precio" class="form-control" value="<?= $id == 0 ? "" : $producto->precio; ?>" min=0 required/>
                   </div>
                 </div>
+                <div class="col-lg-6">
+                    Ingrese stock
+                    <input type="number" id="stock" name="stock" class="form-control" value="<?= $id == 0 ? "" : $producto->mayor_precio; ?>" min=0 required/>
+                  </div>
               </div>
               <div class="col-lg-12">
                 Producto Descripcion
-                <textarea id="decripcion" name="decripcion" class="form-control" required><?= $id == 0 ? "" : $producto->descripcion; ?></textarea>
+                <textarea id="descripcion" name="descripcion" class="form-control" required><?= $id == 0 ? "" : $producto->descripcion; ?></textarea>
               </div>
               <div class="col-lg-12">
                 Producto Categoria
                 <textarea id="categoria" name="categoria" class="form-control"><?= $id == 0 ? "" : $producto->categoria; ?></textarea>
               </div>
               <div class="col-lg-12">
+                elija un estado
+              <select name="estado" id="estado">
+               <option value="publico">publico</option>
+                <option value="oculto">oculto</option>
+      
+                </select>
+
+              </div>
+              <div class="col-lg-12">
+
+              
+
+
+
+
+
                 <br />
                 <input type="submit" class="btn btn-success" value="Save" />
               </div>

@@ -25,7 +25,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__links">
                     <a href="<?= base_url(); ?>">Home</a>
-                    <span>Iniciar Sesion</span>
+                    <span>Iniciar Sesion2</span>
                 </div>
             </div>
         </div>
@@ -36,15 +36,22 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="col-lg-12" style="border:solid 1px gray; border-radius:10px;padding:20px;">
-            <form action="<?= base_url("login/checklogin"); ?>" method="POST">
+            <h2> Ingreso de Usuarios</h2>
+            <form action="<?= base_url("login/checklogin"); ?>" method="POST" id="formLogin">
               <input type="hidden" name="from" value="<?= $from; ?>" />
               Correo	
               <input type="email" name="correo" class="form-control" required />
               Contraseña
               <input type="password" name="contrasena" class="form-control" required />
               <br />
-              <input type="submit" value="Login" class="btn btn-success" />
+              <!--<input type="submit" value="Login" class="btn btn-success" />-->
+              <!--<input type="hidden" name="google-response-token" id="google-response-token">-->
+              <button  class="btn btn-primary form-control" onclick="login()" 
+                data-sitekey=<?php echo SITE_KEY; ?> 
+                data-callback='onSubmit' 
+                data-action='submit'>Ingresar</button>                
             </form>
+            
             </div>
           </div>
           <div class="col-lg-6">
@@ -61,8 +68,10 @@
               <input type="email" name="correo" class="form-control" required />
               Contraseña
               <input type="password" name="contrasena" class="form-control" required />
+              <a href="<?= base_url("login/reestablecer"); ?>">recuperar clave</a>
+
               <br />
-              <input type="submit" value="Registro" class="btn btn-success" />
+              <input type="submit" value="Registro" class="btn btn-primary form-control" />
             </form>
 					
             </div>
@@ -81,10 +90,17 @@
               Contraseña
               <input type="password" name="contrasena" class="form-control" required />
               <br />
-              <input type="submit" value="Registro" class="btn btn-success" />
+              <input type="submit" value="Registro" class="btn btn-primary form-control" />
             </form>
           </div>
 					</div>
         </div>
     </div>
+
+   
+
+
+
+
+
 </section>
